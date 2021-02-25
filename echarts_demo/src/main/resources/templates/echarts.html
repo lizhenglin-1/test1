@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="/static/echarts.min.js"></script>-->
+    <script src="http://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="width: 600px;height:400px;"></div>
+<!--<input type="button" value="charts" onclick="test()">-->
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    myChart.setOption({
+        title: {text: '第一个 ECharts 实例'},//标题
+        tooltip: {},//提示信息
+        legend: {//图例组件
+            data:['销量']
+        },
+        // X 轴显示的项
+        xAxis: {
+            type: 'category',//坐标轴类型 value数值轴,category类目轴,time时间轴,log对数轴
+            name: '种类',
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        // Y 轴显示的项
+        yAxis: {
+            type: 'value',
+            name: '销量',
+            min: 0,//最小值
+            max: 50,//最大值
+            interval: 10 ,//间隔
+            axisLabel: {
+                formatter: '{value} 件'
+            }
+        },
+        //系列列表,每个系列通过 type 决定自己的图表类型
+        series: [
+            {
+                name: '销量',
+                type: 'line',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+    });
+</script>
+</body>
+</html>

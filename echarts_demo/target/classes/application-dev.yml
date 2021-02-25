@@ -1,0 +1,13 @@
+server:
+  port: 8888
+logging:
+  level:
+    com:
+      dk: debug
+
+
+
+
+spring:
+  thymeleaf:
+    cache: false
